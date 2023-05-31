@@ -21,10 +21,30 @@ jobs:
       run: |
         curl -OL https://sketch.com/download/sketch.zip
         unzip sketch.zip
+    - name: Create output directory
+      run: mkdir -p "LCD-Panel/Sketch-Export"
     - name: Run SketchTool
-      run: Sketch.app/Contents/Resources/sketchtool/bin/sketchtool export layers --output=assets *.sketch
+      run: Sketch.app/Contents/Resources/sketchtool/bin/sketchtool export artboards --output="LCD-Panel/Sketch-Export" --overwriting=YES "LCD-Panel/Masters/ADVi3++5 LCD-Panel.sketch"
+    - name: Install imagemagic
+      run: brew install imagemagick
+    - name: Convert images
+      run: |
+        function convert_images() {
+            mkdir -p "$2"
+            echo "Convert images from $1 to 24 bit BMP and copy them into $2..."
+            for f in "$1/"*.png ; do
+                filename=$(basename "$f")
+                name="${filename%.*}"
+                echo Convert "${name}"
+                convert "$f" -type truecolor "BMP3:$2/${name}.bmp"
+                ret=$?; if [[ $ret != 0 ]]; then exit $ret; fi
+            done
+        }
+        convert_images "LCD-Panel/Masters/Boot"             "LCD-Panel/DGUS-root/DWIN_SET"
+        convert_images "LCD-Panel/Sketch-Export/DWIN_SET"   "LCD-Panel/DGUS-root/DWIN_SET"
+        convert_images "LCD-Panel/Sketch-Export/Controls"   "LCD-Panel/DGUS-root/25_Controls"
     - name: ZIP Assets
-      run: zip -r assets.zip assets/
+      run: zip -r assets.zip "LCD-Panel/DGUS-root/"
     - name: Create a GitHub release
       id: create_release
       uses: actions/create-release@master
