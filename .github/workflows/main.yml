@@ -40,7 +40,6 @@ jobs:
                 ret=$?; if [[ $ret != 0 ]]; then exit $ret; fi
             done
         }
-        convert_images "LCD-Panel/Masters/Boot"             "LCD-Panel/DGUS-root/DWIN_SET"
         convert_images "LCD-Panel/Sketch-Export/DWIN_SET"   "LCD-Panel/DGUS-root/DWIN_SET"
         convert_images "LCD-Panel/Sketch-Export/Controls"   "LCD-Panel/DGUS-root/25_Controls"
     - name: ZIP Assets
