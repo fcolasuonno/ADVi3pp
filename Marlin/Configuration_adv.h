@@ -320,7 +320,7 @@
    * below 2.
    */
   // @advi3++: Use appropriate values for Wanaho i3 Plus
-  #define WATCH_TEMP_PERIOD  30               // Seconds
+  #define WATCH_TEMP_PERIOD  60               // Seconds
   #define WATCH_TEMP_INCREASE 3               // Degrees Celsius
 #endif
 
@@ -329,7 +329,7 @@
  */
 #if ENABLED(THERMAL_PROTECTION_BED)
   // @advi3++: Use appropriate values for Wanaho i3 Plus
-  #define THERMAL_PROTECTION_BED_PERIOD        30 // Seconds
+  #define THERMAL_PROTECTION_BED_PERIOD        60 // Seconds
   #define THERMAL_PROTECTION_BED_HYSTERESIS     3 // Degrees Celsius
 
   /**

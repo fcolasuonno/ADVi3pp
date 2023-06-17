@@ -90,15 +90,13 @@
 
 // Choose the name from boards.h that matches your setup
 // @advi3++
-#if defined(ADVi3PP_51)
-  #define MOTHERBOARD BOARD_ADVI3PP_I3_PLUS_51
-#elif defined(ADVi3PP_52C)
+#if defined(ADVi3PP_52C)
   #define MOTHERBOARD BOARD_ADVI3PP_I3_PLUS_52C
 #elif defined(ADVi3PP_54)
   #define MOTHERBOARD BOARD_ADVI3PP_I3_PLUS_54
 #else
   // By default, board 5.1
-  #define MOTHERBOARD BOARD_ADVI3PP_I3_PLUS_51
+  #define MOTHERBOARD BOARD_ADVI3PP_I3_PLUS_52C
 #endif
 
 /**

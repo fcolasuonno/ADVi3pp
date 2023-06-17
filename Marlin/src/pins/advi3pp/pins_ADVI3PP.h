@@ -45,8 +45,8 @@
     #define Z_STOP_PIN          23   // PA1 / AD1
   #endif
 #elif MB(ADVI3PP_I3_PLUS_52C)
-  #define Z_STOP_PIN             6   // PH3 / PWM6
-  #define Z_MIN_PROBE_PIN        6   // PH3 / PCINT8
+  #define Z_STOP_PIN            34   // PH3 / PWM6
+  #define Z_MIN_PROBE_PIN       34   // PH3 / PCINT8
   #if ENABLED(BLTOUCH)
     #define SERVO0_PIN          40   // PG1 / !RD
   #endif
